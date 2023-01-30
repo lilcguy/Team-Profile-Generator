@@ -1,7 +1,7 @@
 /* 
 
 */
-
+//question: how can these function see this array?
 
 
 //export
@@ -31,7 +31,11 @@ for (let i=0; i<engineerArray.length; i++) {
     console.log(engineerArray[i].name); //THIS IS WORKING!!!!!!
     return `
     <div>
-     <h1>${engineerArray[i].name}</h1>
+        <h1>${engineerArray[i].name}</h1>
+        <h2>${engineerArray[i].role}</h2>
+        <h3>ID: ${engineerArray[i].id}</h2>
+        <p> <a href="mailto: ${engineerArray[i].email}">Email: ${engineerArray[i].email}</a> </p>
+        <a href="https://github.com/${engineerArray[i].github}">GitHub: ${engineerArray[i].github}</a>
 
     </div>
     
@@ -60,13 +64,13 @@ module.exports = function (managerArray, engineerArray, internArray) {
     <body>
         <header>My Team</header>
     
-        <div id="Team Members"></div>
+        <div id="Team Members">
     
                 <div id="team-manager-div">
                 ${managerSection(managerArray)} 
                 
             
-            </div>
+            <div>
     
                 <div id="engineer-div">
                 ${engineerSection(engineerArray)}
@@ -77,7 +81,7 @@ module.exports = function (managerArray, engineerArray, internArray) {
             
             </div>
     
-    </div>
+        </div>
         
     
         <script src="./index.js"></script>
