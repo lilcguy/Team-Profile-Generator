@@ -4,6 +4,7 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
 const fs = require('fs');
+const generate = require('./src/generate');
 //const { emitWarning } = require('process');
 
 
@@ -152,11 +153,13 @@ function populate (managerArray, engineerArray, internArray) {
 //create html: have template? have a div thats hidden, then create that?
 //create div, create 2 headers, one for name and role, 2 <a> for email and github
 //createelement
-console.log(managerArray);
-console.log(engineerArray);
-console.log(internArray);
+//console.log(managerArray);
+//console.log(engineerArray);
+//console.log(internArray);
 
-fs.writeFile('./dist/sampleindex.html', "", (err) =>
+const htmlPageContent = generate(managerArray, engineerArray, internArray);
+
+fs.writeFile('./dist/sampleindex.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
 
@@ -164,8 +167,3 @@ fs.writeFile('./dist/sampleindex.html', "", (err) =>
 }
 
 
-/* 
-fs.writeFile('index.html', htmlPageContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
-    );
-*/
