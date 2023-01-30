@@ -7,7 +7,18 @@
 //export
 //module.exports = generate;
 function managerSection(managerArray) {
-    console.log(managerArray);
+    console.log(managerArray); //check if receiving information correctly
+    //let managerProperties = Object.keys(Manager) //get keys from manager object and store it
+    //console.log()
+        
+
+        for (let i=0; i<managerArray.length; i++) {
+            console.log(managerArray[i].name); //referencing the object.property at that index.
+            
+        }
+
+        return ` `
+    
 //loops through and breaks down array and serves up html
 }
 
