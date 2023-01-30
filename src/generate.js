@@ -25,11 +25,12 @@ function managerSection(managerArray) {
 
 function engineerSection(engineerArray){
 //for each engineer
+let engineerSection = "";
 console.log(engineerArray);
 
 for (let i=0; i<engineerArray.length; i++) {
     console.log(engineerArray[i].name); //THIS IS WORKING!!!!!!
-    return `
+    engineerSection += `
     <div>
         <h1>${engineerArray[i].name}</h1>
         <h2>${engineerArray[i].role}</h2>
@@ -39,10 +40,10 @@ for (let i=0; i<engineerArray.length; i++) {
 
     </div>
     
-    
     `
     
 }
+return engineerSection
 }
 
 
