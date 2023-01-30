@@ -13,7 +13,7 @@ function managerSection(managerArray) {
         
 
         for (let i=0; i<managerArray.length; i++) {
-            console.log(managerArray[i].name); //referencing the object.property at that index.
+            console.log(managerArray[i].name); //referencing the property of the object at index i
             
         }
 
@@ -23,8 +23,22 @@ function managerSection(managerArray) {
 }
 
 
-function engineerSection(){
+function engineerSection(engineerArray){
 //for each engineer
+console.log(engineerArray);
+
+for (let i=0; i<engineerArray.length; i++) {
+    console.log(engineerArray[i].name); //THIS IS WORKING!!!!!!
+    return `
+    <div>
+     <h1>${engineerArray[i].name}</h1>
+
+    </div>
+    
+    
+    `
+    
+}
 }
 
 
@@ -50,10 +64,12 @@ module.exports = function (managerArray, engineerArray, internArray) {
     
                 <div id="team-manager-div">
                 ${managerSection(managerArray)} 
+                
             
             </div>
     
                 <div id="engineer-div">
+                ${engineerSection(engineerArray)}
 
             </div>
     
