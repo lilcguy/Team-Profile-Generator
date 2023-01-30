@@ -1,17 +1,22 @@
 const inquirer = require('inquirer');
+const Employee = require('./lib/employee');
 const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
+const Manager = require('./lib/manager');
+const fs = require('fs');
 //const { emitWarning } = require('process');
 
 
 managerArray= [];
 engineerArray = [];
-iternArray = [];
+internArray = [];
 
 
 //clear arrays upon activation
 
-//initial team manager prompts.
-
+//initial team manager prompt.
+function addTeamManager() {
+    //console.log(JSON.stringify(engineerArray)); //make sure its empty
 inquirer 
 .prompt([
     {
@@ -20,7 +25,7 @@ inquirer
         name: 'manager_name'
     },
     {
-        type: 'input',
+        type: 'number',
         message: "Enter the team manager's ID. ",
         name: 'manager_id'
     },
@@ -30,18 +35,22 @@ inquirer
         name: 'manager_email'
     },
     {
-        type: 'input',
+        type: 'number',
         message: "Enter the team manager's office number.",
         name: 'office_num'
     }
 ])
 .then( (response) => {
     console.log("Team manager: " + response.manager_name);
+    let newManager = new Manager(response.manager_name, response.manager_id, response.manager_email, response.office_num);
+    managerArray.push(newManager);
+    //push to team manager array
     choicePrompt();
 })
+}
 
 
-//onStart(); //runs choice prompt on boot up.
+addTeamManager(); //runs choice prompt on boot up.
 
 
 
@@ -62,7 +71,7 @@ inquirer.prompt([
         addIntern();
     }
     if ( response.choice === 'Finish team creation') {
-        populate();
+        populate(managerArray, engineerArray, internArray);
     }
 });
 }
@@ -90,14 +99,16 @@ function addEngineer() {
             message: 'What is their github?',
             name: 'engineer_github'
         }
-        //github?
+        
     ])
     .then( (response) => {
         console.log("Engineer added.");
         let newEngineer = new Engineer(response.engineer_name, response.engineer_id, response.engineer_email, response.engineer_github);
-        console.log(newEngineer);
+        //console.log(newEngineer);
         engineerArray.push(newEngineer);
-        console.log("Engineers: " + engineerArray);
+       // console.log("Engineers: " + JSON.stringify(engineerArray, null, " ")
+       
+
 
 
         choicePrompt(); //returns to initial choices prompt.
@@ -128,16 +139,33 @@ function addIntern ()  {
             message: 'What is their school?',
             name: 'intern_school'
         }
-    ]).then( () => {
+    ]).then( (response) => {
         console.log("Intern added.")
+        let newIntern = new Intern(response.intern_name, response.intern_id, response.intern_email, response.intern_school);
+        internArray.push(newIntern);
         choicePrompt();
     })
 }
 
-function populate () {
+function populate (managerArray, engineerArray, internArray) {
+//loop through each array to populate:
+//create html: have template? have a div thats hidden, then create that?
+//create div, create 2 headers, one for name and role, 2 <a> for email and github
+//createelement
+console.log(managerArray);
+console.log(engineerArray);
+console.log(internArray);
+
+fs.writeFile('./dist/sampleindex.html', "", (err) =>
+      err ? console.log(err) : console.log('Successfully created index.html!')
+    );
+
 
 }
 
 
-//e = github
-// i = school
+/* 
+fs.writeFile('index.html', htmlPageContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created index.html!')
+    );
+*/
