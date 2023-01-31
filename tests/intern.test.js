@@ -16,6 +16,7 @@ describe('Intern', () => {
             expect(intern.id).toEqual(1);
             expect(intern.email).toEqual("the@mail.com");
             expect(intern.school).toEqual("Lincoln Center");
+            expect(intern.role).toEqual("Intern");
         });
     })
 })
