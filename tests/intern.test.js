@@ -22,3 +22,4 @@ describe('Intern', () => {
 
 //styling: bootstrap
 //do other tests for each 
+//suggest to install jest in readme

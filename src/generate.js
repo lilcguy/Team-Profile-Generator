@@ -7,34 +7,44 @@
 //export
 //module.exports = generate;
 function managerSection(managerArray) {
-    console.log(managerArray); //check if receiving information correctly
-    //let managerProperties = Object.keys(Manager) //get keys from manager object and store it
-    //console.log()
+    //console.log(managerArray); //check if receiving information correctly
+        let managerSection = "";
         
 
-        for (let i=0; i<managerArray.length; i++) {
-            console.log(managerArray[i].name); //referencing the property of the object at index i
-            
-        }
+     for (let i=0; i<managerArray.length; i++) {
+        managerSection += `
+        <div>
+            <h1>${managerArray[i].name}</h1>
+            <h2>${managerArray[i].role}</h2>
+            <h2>ID: ${managerArray[i].id}</h2>
+            <p> <a href="mailto: ${managerArray[i].email}">Email: ${managerArray[i].email}</a> </p>
+            <p>Office Number: ${managerArray[i].officeNumber}</p>
 
-        return ` `
+        </div>
+            
+            
+        `
+            
+    }
+
+    return managerSection;
     
 //loops through and breaks down array and serves up html
 }
 
 
-function engineerSection(engineerArray){
+function engineerSection(engineerArray) {
 //for each engineer
 let engineerSection = "";
-console.log(engineerArray);
+//console.log(engineerArray);
 
 for (let i=0; i<engineerArray.length; i++) {
-    console.log(engineerArray[i].name); //THIS IS WORKING!!!!!!
+    //console.log(engineerArray[i].name); //THIS IS WORKING!!!!!!
     engineerSection += `
     <div>
         <h1>${engineerArray[i].name}</h1>
         <h2>${engineerArray[i].role}</h2>
-        <h3>ID: ${engineerArray[i].id}</h2>
+        <h2>ID: ${engineerArray[i].id}</h2>
         <p> <a href="mailto: ${engineerArray[i].email}">Email: ${engineerArray[i].email}</a> </p>
         <a href="https://github.com/${engineerArray[i].github}">GitHub: ${engineerArray[i].github}</a>
 
@@ -43,12 +53,29 @@ for (let i=0; i<engineerArray.length; i++) {
     `
     
 }
-return engineerSection
+return engineerSection;
 }
 
 
-function internSection(){
+function internSection(internArray) {
+let internSection = "";
 
+for (let i=0; i<internArray.length; i++) {
+    internSection += `
+    <div>
+        <h1>${internArray[i].name}</h1>
+        <h2>${internArray[i].role}</h2>
+        <h2>ID: ${internArray[i].id}</h2>
+        <p> <a href="mailto: ${internArray[i].email}">Email: ${internArray[i].email}</a> </p>
+        <p>School: ${internArray[i].school}</p>
+
+    </div>
+        
+        
+    `
+        
+}
+return internSection;
 }
 
 
@@ -79,7 +106,7 @@ module.exports = function (managerArray, engineerArray, internArray) {
             </div>
     
                 <div id="intern-div">
-            
+                ${internSection(internArray)}
             </div>
     
         </div>
