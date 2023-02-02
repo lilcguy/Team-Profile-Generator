@@ -18,6 +18,8 @@ Walkthrough video:
 
 https://drive.google.com/file/d/1sxjc5A-gRLzdpHFWFyKOPkkYDoIPQJ1Q/view?usp=share_link
 
+The sample HTML file created in the video is found in /dist/sampleindex.html.
+
 ## Tests
 
 After installing the dependencies with the npm i command, run the command npm test to start Jest, which will run the test suites.
