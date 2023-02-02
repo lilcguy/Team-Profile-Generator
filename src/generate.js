@@ -1,7 +1,7 @@
 /* 
 
 */
-//question: how can these function see this array?
+
 
 
 //export
@@ -88,24 +88,25 @@ module.exports = function (managerArray, engineerArray, internArray) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile Generator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <header>My Team</header>
+        <header class="justify-content-center">My Team</header>
     
-        <div id="Team Members">
+        <div id="Team Members"  class="container">
     
-                <div id="team-manager-div">
+                <div id="team-manager-div" class="card" style="width: 18rem;">
                 ${managerSection(managerArray)} 
                 
             
             <div>
     
-                <div id="engineer-div">
+                <div id="engineer-div" class="card" style="width: 18rem;">
                 ${engineerSection(engineerArray)}
 
             </div>
     
-                <div id="intern-div">
+                <div id="intern-div" class="card" style="width: 18rem;">
                 ${internSection(internArray)}
             </div>
     
